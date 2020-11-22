@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather\css\style.css' %}">
+    <title>My first Django App</title>
+</head>
+<body>
+
+    <!-- Sprites  'weather\css\style.css' -->
+    <svg style="display: none;">
+        <symbol id="telegram" viewBox="0 0 24 24">
+            <g>
+                <path d="m12 24c6.629 0 12-5.371 12-12s-5.371-12-12-12-12 
+                5.371-12 12 5.371 12 12 12zm-6.509-12.26 11.57-4.461c.537-.194 
+                1.006.131.832.943l.001-.001-1.97 9.281c-.146.658-.537.818-1.084.508l-3-2.211-1.447 
+                1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 
+                4.326-2.962-.924c-.643-.204-.657-.643.136-.953z"/>
+            </g>
+        </symbol>
+    </svg>
+
+    <section>
+        <div class="main" id="main">
+            <header class="header">
+                <h3 class="logo">
+                    Weather?
+                    <sub>
+                        <a href="https://t.me/DoNoTTTouchMe" class="nav-link">by Levander</a>
+                    </sub>
+                </h3>
+            </header><!-- /header -->
+
+            <div class="main-inner">
+                <form action="#" method="post" class="form">
+                    {% csrf_token %}
+                    {{ form.name }}
+                    <button type="submit" class="submit-btn">Add Me</button>
+                </form>
+                {% if message %}
+                <div class="notification {{ message_class }}">{{ message }}</div>
+                {% endif %}
+
+                <div class="main-content">
+                    {% for info in allInfo %}
+                        <div class="weather-box">
+                            <div class="weather-content">
+                                <span class="city"> {{ info.city }} </span>
+                                <span class="temperature">{{ info.temp }}
+                                    <sup><sup>o</sup>C</sup>
+                                </span>
+                            </div>
+                            <a href="{% url 'del_city' info.city %}" class="delete-city">
+                                <img src="{% static 'weather\img\delete.png' %}" class="delete-icon">
+                            </a>
+                            <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" width="100px" >
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div><!-- /main -->
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://t.me/DoNoTTTouchMe" class="social-items">
+                <svg class="social-icon">
+                    <use xlink:href="#telegram"></use>
+                </svg>
+            </a>
+            <div class="copyright">
+                <div id="time">Copyright <span id="year"></span></div>
+                <div style="font-family: 'Wisdom Script';">Wish u good weather</div>
+            </div>
+        </div>
+    </footer><!-- /footer -->
+    
+
+    {% comment %} three and Vanta js {% endcomment %}
+    <script type="text/javascript" src={% static "weather\js\three.r119.min.js" %}></script>
+    <script type="text/javascript" src={% static "weather\js\vanta.clouds.min.js" %}></script>
+    {% comment %} Castom Js {% endcomment %}
+    <script type="text/javascript" src={% static "weather\js\index.js" %}></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* django classes */
+    .notification {
+        margin-top: 10px;
+        width: 400px;
+        height: 40px;
+        border-radius: 20px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        color: #fff;
+    }
+    
+    .danger {
+        background-color: rgb(175, 25, 25);
+    }
+    .success {
+        background-color: rgb(44, 121, 44);
+    }
+/*  */
+
+/*** header ***/
+.header {
+    padding: 5px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 36px;
+    font-family: "Wisdom Script";
+    color: #fccc0a;
+}
+
+.nav-link {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000;
+    text-decoration: none;
+    transition: .4s;
+
+    position: relative;
+}
+
+.nav-link:after {
+    display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #fccc0a;
+	content: "";
+	transition: width 0.4s ease-out;
+}
+
+.nav-link:hover:after,
+.nav-link:focus:after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #fccc0a;
+}
+
+/*** main ***/
+.main {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+}
+
+.main-inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-content {
+    padding-bottom: 20px;
+}
+
+.form {
+    display: flex;
+}
+
+.find-city {
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 15px;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px 0px 0px 20px;
+    border: 3px solid #8caad7;
+    background: inherit;
+
+    outline: none;
+
+    transition: .4s;
+}
+
+::placeholder {
+    color: #000;
+}
+
+.find-city:focus {
+    background-color: #6b98db;
+    color: #fff;
+}
+
+.find-city:focus::placeholder {
+    color: #fff;
+}
+
+.submit-btn {
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 0px 20px 20px 0px;
+    border: 3px solid #fccc0a;
+    background: inherit;
+
+    outline: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.submit-btn:hover {
+    color: #fff;
+    background-color: #fccc0a;
+}
+
+.weather-box {
+    padding: 10px 20px;
+    margin-top: 30px;
+    width: 360px;
+    height: auto;
+
+    border: 3px solid #fccc0a;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    
+    width: 90px;
+}
+
+.city,
+.temperature {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000;
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temperature {
+    font-size: 16px;
+}
+
+/*** footer ***/
+.footer {
+    padding: 5px 0;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background-color: #7b9fd4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-items {
+    height: 40px;
+    width: 40px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid #000;
+}
+
+.social-icon {
+    display: block;
+    height: 30px;
+    fill: #000000;
+
+    transition: 0.3s;
+}
+
+.social-items:hover {
+    background-color: #3949ab;
+    border: 3px solid #fff;
+}
+
+.social-items:hover .social-icon {
+    fill: #fff;
+}
+
+.copyright {
+    font-size: 18px;
+}
